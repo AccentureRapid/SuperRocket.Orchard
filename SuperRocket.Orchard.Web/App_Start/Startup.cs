@@ -55,6 +55,24 @@ namespace SuperRocket.Orchard.Web
             //{
             //    Authorization = new[] { new AbpHangfireAuthorizationFilter() } //You can remove this line to disable authorization
             //});
+            app.UseErrorPage();
+            app.UseWelcomePage("/welcome");
+
+            //GlobalConfiguration.Configuration.UseSqlServerStorage(
+            //    "DefaultConnection",
+            //    new SqlServerStorageOptions { QueuePollInterval = TimeSpan.FromSeconds(1) });
+
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
+
+            RecurringJob.AddOrUpdate(
+                () => LongRunningConsole(),
+                Cron.Minutely);
+        }
+
+        public void LongRunningConsole()
+        {
+            Console.WriteLine("{0} Recurring job completed successfully!", DateTime.Now.ToString());
         }
 
         private static FacebookAuthenticationOptions CreateFacebookAuthOptions()

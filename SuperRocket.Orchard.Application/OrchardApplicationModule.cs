@@ -1,10 +1,13 @@
 ﻿using System.Reflection;
 using Abp.AutoMapper;
 using Abp.Modules;
+using Abp.Hangfire;
+using Abp.Hangfire.Configuration;
+using Hangfire;
 
 namespace SuperRocket.Orchard
 {
-    [DependsOn(typeof(OrchardCoreModule), typeof(AbpAutoMapperModule))]
+    [DependsOn(typeof(OrchardCoreModule), typeof(AbpAutoMapperModule), typeof(AbpHangfireModule))]
     public class OrchardApplicationModule : AbpModule
     {
         public override void PreInitialize()
@@ -13,6 +16,11 @@ namespace SuperRocket.Orchard
             {
                 //Add your custom AutoMapper mappings here...
                 //mapper.CreateMap<,>()
+            });
+
+            Configuration.BackgroundJobs.UseHangfire(configuration =>
+            {
+                configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             });
         }
 
