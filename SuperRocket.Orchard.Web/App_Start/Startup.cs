@@ -12,6 +12,7 @@ using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.Twitter;
 using Owin;
+using Hangfire.SqlServer;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -58,9 +59,10 @@ namespace SuperRocket.Orchard.Web
             app.UseErrorPage();
             app.UseWelcomePage("/welcome");
 
-            //GlobalConfiguration.Configuration.UseSqlServerStorage(
-            //    "DefaultConnection",
-            //    new SqlServerStorageOptions { QueuePollInterval = TimeSpan.FromSeconds(1) });
+            GlobalConfiguration.Configuration.UseSqlServerStorage(
+                "Default",
+                new SqlServerStorageOptions { QueuePollInterval = TimeSpan.FromSeconds(1) });
+
 
             app.UseHangfireDashboard();
             app.UseHangfireServer();
