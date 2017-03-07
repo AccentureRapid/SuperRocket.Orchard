@@ -6,6 +6,7 @@ using Abp.Hangfire.Configuration;
 using Hangfire;
 using Hangfire.SqlServer;
 using System;
+using SuperRocket.Orchard.Services;
 
 namespace SuperRocket.Orchard
 {
