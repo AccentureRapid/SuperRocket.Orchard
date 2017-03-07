@@ -4,6 +4,8 @@ using Abp.Modules;
 using Abp.Hangfire;
 using Abp.Hangfire.Configuration;
 using Hangfire;
+using Hangfire.SqlServer;
+using System;
 
 namespace SuperRocket.Orchard
 {
@@ -22,6 +24,7 @@ namespace SuperRocket.Orchard
             {
                 configuration.GlobalConfiguration.UseSqlServerStorage("Default");
             });
+
         }
 
         public override void Initialize()

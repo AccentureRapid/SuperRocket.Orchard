@@ -59,23 +59,23 @@ namespace SuperRocket.Orchard.Web
             app.UseErrorPage();
             app.UseWelcomePage("/welcome");
 
-            GlobalConfiguration.Configuration.UseSqlServerStorage(
-                "Default",
-                new SqlServerStorageOptions { QueuePollInterval = TimeSpan.FromSeconds(1) });
+            //GlobalConfiguration.Configuration.UseSqlServerStorage(
+            //    "Default",
+            //    new SqlServerStorageOptions { QueuePollInterval = TimeSpan.FromSeconds(1) });
 
 
             app.UseHangfireDashboard();
-            app.UseHangfireServer();
+            // app.UseHangfireServer();
 
-            RecurringJob.AddOrUpdate(
-                () => LongRunningConsole(),
-                Cron.Minutely);
+            //RecurringJob.AddOrUpdate(
+            //    () => LongRunningConsole(),
+            //    Cron.Minutely);
         }
 
-        public void LongRunningConsole()
-        {
-            Console.WriteLine("{0} Recurring job completed successfully!", DateTime.Now.ToString());
-        }
+        //public void LongRunningConsole()
+        //{
+        //    Console.WriteLine("{0} Recurring job completed successfully!", DateTime.Now.ToString());
+        //}
 
         private static FacebookAuthenticationOptions CreateFacebookAuthOptions()
         {
