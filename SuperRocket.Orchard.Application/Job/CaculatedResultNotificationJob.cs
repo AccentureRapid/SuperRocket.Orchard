@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace SuperRocket.Orchard.Job
 {
-    public class CaculateLaborRateJob : BackgroundJob<CaculatedResultNotificationSentEventData>, ITransientDependency
+    public class CaculatedResultNotificationJob : BackgroundJob<CaculatedResultNotificationSentEventData>, ITransientDependency
     {
         private IEventBus _eventBus;
 
-        public CaculateLaborRateJob(IEventBus eventBus)
+        public CaculatedResultNotificationJob(IEventBus eventBus)
         {
             _eventBus = eventBus;
         }

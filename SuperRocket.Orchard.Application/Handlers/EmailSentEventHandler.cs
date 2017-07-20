@@ -23,7 +23,7 @@ namespace SuperRocket.Orchard.Handlers
         public void HandleEvent(EmailSentEventData eventData)
         {
             Console.WriteLine(string.Format("Email job completed, then start next job!", DateTime.Now.ToString(), eventData.Subject));
-            _backgroundJobManager.Enqueue<CaculateLaborRateJob, CaculatedResultNotificationSentEventData>( new CaculatedResultNotificationSentEventData { Subject = "please send CaculatedResult completed email to these people." });
+            _backgroundJobManager.Enqueue<LaborRateCaculatedJob, LaborRateCaculatedEventData>( new LaborRateCaculatedEventData { Rate = "0.88" });
         }
     }
 }
