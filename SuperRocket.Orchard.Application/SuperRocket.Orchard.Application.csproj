@@ -118,6 +118,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\CaculatedResultNotificationSentHandler.cs" />
+    <Compile Include="Handlers\EmailSentEventHandler.cs" />
+    <Compile Include="Handlers\InterfaceDataLoadedEventHandler.cs" />
+    <Compile Include="Job\CaculateLaborRateJob.cs" />
+    <Compile Include="Job\LaborRateCaculatedJob.cs" />
+    <Compile Include="Job\SendInterfaceLoadedEmailJob.cs" />
+    <Compile Include="Job\LoadInterfaceDataJob.cs" />
     <Compile Include="Job\TestJob.cs" />
     <Compile Include="OrchardApplicationModule.cs" />
     <Compile Include="OrchardAppServiceBase.cs" />

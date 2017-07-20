@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\EventsData.cs" />
     <Compile Include="OrchardConsts.cs" />
     <Compile Include="OrchardCoreModule.cs" />
     <Compile Include="Authorization\OrchardAuthorizationProvider.cs" />
